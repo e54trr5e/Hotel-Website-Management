@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hote Service Website</title>
+   <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav img {
+  margin-left: 50px;
+}
+
+.open ul {
+  display: flex;
+  margin: 20px 20px 30px;
+  justify-content: center;
+  display: inline-block;
+}
+
+.open ul li {
+  list-style: none;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.open ul li a {
+  color: black;
+  margin: 0 20px;
+  transition: 0.5s;
+}
+
+h1,
+h2 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  outline: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.first {
+  padding: 15px 40px;
+  background: #7fc142;
+  font-weight: bold;
+  color: white;
+}
+
+.home {
+  height: auto;
+  position: relative;
+  color: white;
+}
+
+.banner img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.banner .text {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+
+.banner .text h1 {
+  font-size: 80px;
+  font-family: serif;
+  font-weight: 400;
+}
+
+.banner p {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.left,
+.right {
+  margin-left: 200px 80px 20px;
+  width: 50%;
+  padding: 30px;
+}
+
+.left h2 {
+  margin: 30px 0;
+  font-size: 45px;
+  font-family: serif;
+  font-weight: 400;
+}
+
+.about .first {
+  margin: 20px 0;
+}
+
+.about p {
+  font-size: 15px;
+}
+
+.about {
+  display: flex;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #f4f4f4;
+}
+
+.service-box {
+  width: 30%;
+  text-align: center;
+}
+
+.service-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.gallery {
+  text-align: center;
+  padding: 70px 8%;
+  background: #f5f5f5;
+}
+
+.gallery h2 {
+  margin-bottom: 25px;
+  font-size: 45px;
+}
+
+.gallery p {
+  color: grey;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@media(max-width:768px) {
+  .gallery h2 {
+    font-size: 32px;
+  }
+}
+
+.menu {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.menu .text {
+  margin: 40px 0 40px;
+  font-size: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.menu-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.menu-info {
+  padding: 15px;
+}
+
+.menu-info h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.price {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contact {
+  margin-top: 25px;
+  padding: 50px 20px;
+  text-align: center;
+  background-color: black;
+  color: black;
+}
+
+.contact h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.contact-info h3 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 14px;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+button {
+  background: #2c7be5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #1a5fd1;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}
+   </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8XivU_w00XczxwEKlhRo-8iPmg5HWrTdqPg&s"
+                width="250px" height="120px">
+        </div>
+
+        <div class="open">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li> <i class="fa fa-search"></i> </li>
+                <li><button class="first">Book Now</button></li>
+            </ul>
+            <span class="fa fa-bars" onclick="menutoggle()"></span>
+        </div>
+    </nav>
+    <header>
+        <section id="home" class="home">
+            <div class="banner">
+                <img src="https://www.dellaresorts.com/new-images/luxuryresort-banner.webp" alt="">
+                <div class="text">
+                    <h1 id="hotelName">Spend Your Holiday</h1>
+                    <p>Your perfect destin nation for luxury and comfort</p>
+                    <div class="read_more">
+                        <button class="first">
+                            READ MORE
+                        </button>
+                    </div>
+                </div>
+        </section>
+
+        <section class="about">
+            <div class="left">
+                <h2>Lemon Tree Hotels</h2>
+                <p>
+                    Experience true luxury and comfort at Grand Vista Hotel, where elegance meets
+                    exceptional hospitality. Our hotel offers spacious deluxe rooms, fine dining
+                    restaurants, a relaxing spa, swimming pool, fitness center, and modern
+                    conference facilities. Whether you are traveling for business or leisure,
+                    we provide 24/7 room service, warm customer care, and world-class amenities
+                    to make your stay peaceful, memorable, and enjoyable. Discover the perfect
+                    blend of style, comfort, and personalized service with us.
+                </p>
+                <button class="first">
+                    ABOUT US
+                </button>
+            </div>
+            <div class="right">
+                <div class="image">
+                    <img
+                        src="https://img.freepik.com/free-photo/full-shot-man-carrying-baggage_23-2149963942.jpg?semt=ais_user_personalization&w=740&q=80">
+                </div>
+            </div>
+        </section>
+        <section class="services">
+            <div class="service-box">
+                <img src="https://seaprincess.com/cdn/uploads/Luxury-Room-08.webp" alt="Luxury Rooms" height="330px">
+                <h3>Luxury Stay</h3>
+                <p>Spacious and elegant rooms designed for relaxation and comfort.</p>
+            </div>
+
+            <div class="service-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4CegWh_u9q_O0RtjVO7AGD-K4cuE9G_D4yg&s"
+                    alt="Fine Dining">
+                <h3>Fine Dining</h3>
+                <p>Enjoy delicious meals prepared by our expert chefs.</p>
+            </div>
+
+            <div class="service-box">
+                <img src="https://blog.hotellinksolutions.com/hs-fs/hubfs/the-impact-of-exceptional-housekeeping-1.png?width=1200&height=800&name=the-impact-of-exceptional-housekeeping-1.png"
+                    alt="Comfort Services" height="330px">
+                <h3>Premium Comfort</h3>
+                <p>24/7 services to ensure a stress-free and pleasant stay.</p>
+            </div>
+        </section>
+        </div>
+    </header>
+    <div id="gallery" class="gallery">
+        <div class="top">
+            <h2>Our Hotel Gallery</h2>
+            <p>
+                Explore our luxury rooms, elegant reception, delicious food,
+                relaxing spa, and premium facilities designed for your comfort.
+            </p>
+        </div>
+        <div class="grid">
+            <img src="https://www.jaypeehotels.com/blog/wp-content/uploads/2024/09/Blog-6-scaled.jpg" alt="Hotel Room">
+
+            <img src="https://media.istockphoto.com/id/1164435677/photo/happy-hotel-clerks-are-welcoming-professional-at-counter.jpg?s=612x612&w=0&k=20&c=XNbtAFwGK4AHd7JKKQycDwTQcIXFagIxt9TXLNb0Dd4="
+                alt="Reception">
+
+            <img src="https://b.zmtcdn.com/data/pictures/7/19138747/741e83bfd72cc8eef418e167730f1ecd.jpg?fit=around|960:500&crop=960:500;*,*"
+                alt="Food">
+
+            <img src="https://leisurepoolsusa.com/wp-content/uploads/2022/05/best-type-of-swimming-pool-for-my-home.webp"
+                alt="Pool">
+
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/f7/03/67/cabina-duo-de-spa-del.jpg?w=700&h=400&s=1"
+                alt="Spa">
+
+            <img src="https://no1lounges.com/_next/image/?url=https%3A%2F%2Fmedia.umbraco.io%2Fno1lounges%2F3jvnuub4%2Flondon-heathrow-terminal-2-no1-lounge-lounge-area.jpeg&w=3840&q=75"
+                alt="Lounge">
+
+            <img src="https://images.squarespace-cdn.com/content/v1/65ea57ee166f6a2f2b588f9d/33c574d6-04de-41e7-8436-1786f731c0d5/deluxe-hotel-room-with-balcony-in-devon-min.jpg"
+                alt="Balcony">
+
+            <img src="https://au.koala.com/cdn/shop/files/Outdoor_Torakina_LoungeSet1__SoftMoss_1-4tKgT4EMdq7sAwV70XAvAs.jpg?v=1725430405&width=1920"
+                alt="Garden Lounge">
+
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/23/a2/06/caption.jpg?w=900&h=500&s=1"
+                alt="Gym">
+
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/313912650/SP/GV/OV/6299362/all-weather-proof-artificial-grass-for-school-garden-resort-hotel-garden-sports-complex-club-500x500.jpg"
+                alt="Golf Area">
+        </div>
+    </div>
+    <div id="menu" class="menu">
+        <div class="text">
+            <h2>🍽 Our Delicious Menu</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://myfoodstory.com/wp-content/uploads/2021/07/restaurant-style-paneer-butter-masala-2-500x500.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Paneer Butter Massala</h3>
+                    <p class="price">₹220</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Veg Biriyani</h3>
+                    <p class="price">₹250</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://www.indianveggiedelight.com/wp-content/uploads/2022/12/white-sauce-pasta-featured.jpg" alt="">
+                <div class="menu-info">
+                    <h3>White Sauce Pasta</h3>
+                    <p class="price">₹199</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://www.whiskaffair.com/wp-content/uploads/2020/10/Veg-Hakka-Noodles-2-3.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Veg Noodles</h3>
+                    <p class="price">₹200</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://static.toiimg.com/thumb/54714340.cms?width=1200&height=900" alt="">
+                <div class="menu-info">
+                    <h3>Grilled Sandwich</h3>
+                    <p class="price">₹129</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://i.pinimg.com/736x/27/81/3c/27813c5a5ee1a068ac9ec470ba22ca52.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Chocolate Ice Cream</h3>
+                    <p class="price">₹99</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://www.licious.in/blog/wp-content/uploads/2022/12/Shutterstock_1043177881.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Fried Rice</h3>
+                    <p class="price">₹99</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://recipes.timesofindia.com/thumb/53338316.cms?width=1200&height=900" alt="">
+                <div class="menu-info">
+                    <h3>Butter Naan</h3>
+                    <p class="price">₹40(1 pcs)</p>
+                </div>
+            </div>
+         <div class="menu-card">
+                <img src="https://cdn.aboutamom.com/uploads/2024/09/How-to-Make-a-Milkshake-A_AAM_How_to_Make_a_Milkshake_Feature_3-scaled.jpg" alt="">
+                <div class="menu-info">
+                    <h3>Milk Shake</h3>
+                    <p class="price">₹60</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Hotel Contact Details</h3>
+                <p><strong>Address:</strong> 123 Luxury Street, Mumbai, India</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> info@royalhotel.com</p>
+            </div>
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required />
+                    <input type="email" id="email" placeholder="Your Email" required />
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+         document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            alert("Thank you " + name + "! Your message has been submitted.");
+
+            this.reset();
+        });
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+
+    alert("Thank you " + name + "! We will contact you soon.");
+
+    this.reset();
+});
+
+function menutoggle() {
+    const nav = document.querySelector(".open ul");
+    nav.classList.toggle("show");
+}
+    </script>
+</body>
+
+</html>
